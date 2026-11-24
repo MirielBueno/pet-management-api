@@ -1,0 +1,58 @@
+@baseUrl = http://localhost:3000
+
+### consulta tutores
+GET {{baseUrl}}/tutores
+
+### consulta pets
+GET {{baseUrl}}/pets
+
+### cadastra um pet
+POST {{baseUrl}}/pets
+Content-Type: application/json
+
+{
+    "nome_pet": "Paçoca",
+    "raca_pet": "SDR",
+    "sexo_pet": "F",
+    "altura_cm": 15,
+    "id_tutor": 1
+}
+
+### atualizar pet
+PUT {{baseUrl}}/pets/13
+Content-Type: application/json
+
+{
+    "nome_pet": "Paçoca",
+    "raca_pet": "SDR",
+    "sexo_pet": "F",
+    "altura_cm": 50,
+    "id_tutor": 1
+}
+
+
+### excluir um pet
+DELETE {{baseUrl}}/pets/13
+
+### consulta pets por tutor
+GET {{baseUrl}}/pets/tutor/1
+
+### consulta pets por altura
+GET {{baseUrl}}/pets/altura/10
+
+### Gerar token JWT
+# @name login
+POST {{baseUrl}}/auth/token
+Content-Type: application/json
+
+{
+"senha": "{{$dotenv API_PASSWORD}}"
+}
+
+### consulta pet sem autenticação
+GET {{baseUrl}}/pets/3
+
+
+### Consultar pet com autenticação JWT
+GET {{baseUrl}}/pets/3
+Authorization: Bearer {{login.response.body.$.token}}

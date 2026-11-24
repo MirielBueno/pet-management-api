@@ -19,6 +19,10 @@
   "homepage": "https://github.com/mirielbueno/pet-management-api#readme",
   "dependencies": {
     "cors": "^2.8.6",
-    "express": "^5.3.0"
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mariadb": "^3.5.5",
+    "sequelize": "^6.37.8"
   }
 }
